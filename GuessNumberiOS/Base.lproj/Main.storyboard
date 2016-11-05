@@ -1,26 +1,86 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C32f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GuessNumberiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajt-dW-1d0">
+                                <state key="normal" title="Guess!"/>
+                                <connections>
+                                    <action selector="Guess:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5aK-l9-ZLF"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H53-pv-190">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="ytG-4x-gFk"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="setValueToZero:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="4Kx-3K-ifO"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 0 chances" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbU-e2-Ava">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUA-RW-jCw">
+                                <state key="normal" title="Retry"/>
+                                <connections>
+                                    <action selector="Retry:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1zu-sa-pup"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo7-Pf-bip">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IbU-e2-Ava" firstAttribute="leading" secondItem="H53-pv-190" secondAttribute="trailing" constant="8" symbolic="YES" id="14v-Yh-LVd"/>
+                            <constraint firstItem="ajt-dW-1d0" firstAttribute="baseline" secondItem="mUA-RW-jCw" secondAttribute="baseline" id="3em-Mf-PxD"/>
+                            <constraint firstItem="IbU-e2-Ava" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="14" id="KSc-Rj-Sm2"/>
+                            <constraint firstItem="H53-pv-190" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="L5n-c7-OVG"/>
+                            <constraint firstItem="mUA-RW-jCw" firstAttribute="leading" secondItem="ajt-dW-1d0" secondAttribute="trailing" constant="21" id="NyF-6H-Caw"/>
+                            <constraint firstItem="ajt-dW-1d0" firstAttribute="leading" secondItem="H53-pv-190" secondAttribute="leading" id="R6m-Ip-hJY"/>
+                            <constraint firstItem="Vo7-Pf-bip" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="RmA-Le-peO"/>
+                            <constraint firstItem="ajt-dW-1d0" firstAttribute="top" secondItem="H53-pv-190" secondAttribute="bottom" constant="51" id="Uqb-qZ-0W3"/>
+                            <constraint firstItem="H53-pv-190" firstAttribute="centerY" secondItem="IbU-e2-Ava" secondAttribute="centerY" id="V6G-ne-pBd"/>
+                            <constraint firstItem="Vo7-Pf-bip" firstAttribute="top" secondItem="ajt-dW-1d0" secondAttribute="bottom" constant="8" symbolic="YES" id="iOb-09-RPK"/>
+                            <constraint firstItem="ajt-dW-1d0" firstAttribute="leading" secondItem="Vo7-Pf-bip" secondAttribute="leading" id="mhF-GW-6ex"/>
+                            <constraint firstItem="IbU-e2-Ava" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rvq-0S-4eX"/>
+                            <constraint firstItem="Vo7-Pf-bip" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="upc-xr-0ja"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn_guess" destination="ajt-dW-1d0" id="CA2-dQ-jDI"/>
+                        <outlet property="btn_retry" destination="mUA-RW-jCw" id="vKI-07-1v0"/>
+                        <outlet property="lab_hint" destination="Vo7-Pf-bip" id="Ro3-Ig-TUZ"/>
+                        <outlet property="label_discription" destination="IbU-e2-Ava" id="EXc-c1-2bd"/>
+                        <outlet property="txt_userInput" destination="H53-pv-190" id="fO7-6Q-8Iy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="135" y="136.25"/>
         </scene>
     </scenes>
 </document>
